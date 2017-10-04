@@ -34,7 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +61,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\AttachmentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TaskControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Task.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,6 +88,42 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\AttachmentsControl.xaml.cs">
+      <DependentUpon>AttachmentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskControl.xaml.cs">
+      <DependentUpon>TaskControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Attachment.cs" />
+    <Compile Include="Entity\Avatar.cs" />
+    <Compile Include="Entity\GroupTypes.cs" />
+    <Compile Include="Entity\GroupUser.cs" />
+    <Compile Include="Entity\Message.cs" />
+    <Compile Include="Entity\MessageData.cs" />
+    <Compile Include="Entity\MessageGroup.cs" />
+    <Compile Include="Entity\MessageGroupRingSettings.cs" />
+    <Compile Include="Entity\MessageStatuses.cs" />
+    <Compile Include="Entity\MessageUserStatus.cs" />
+    <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UserStatuses.cs" />
+    <Compile Include="Entity\Work.cs" />
+    <Compile Include="Entity\WorkItem.cs" />
+    <Compile Include="Entity\WorkItemFields.cs" />
+    <Compile Include="Entity\WorkItemHistory.cs" />
+    <Compile Include="Entity\WorkItemStatuses.cs" />
+    <Compile Include="Entity\WorkItemTypeAssign.cs" />
+    <Compile Include="Entity\WorkItemTypes.cs" />
+    <Compile Include="Entity\WorkReason.cs" />
+    <Compile Include="Forms\Password.xaml.cs">
+      <DependentUpon>Password.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Task.xaml.cs">
+      <DependentUpon>Task.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -85,6 +148,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

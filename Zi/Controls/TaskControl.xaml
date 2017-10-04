@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Zi.Controls.TaskControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Zi.Controls"
+             mc:Ignorable="d" Width="590.488" Height="454.39">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="33,19,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="16" Width="53"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="114,19,-104,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+        <TextBlock HorizontalAlignment="Left" Margin="33,122,0,0" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Height="16" Width="63"/>
+        <TextBox HorizontalAlignment="Left" Height="192" Margin="114,121,-264,-13" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="450"/>
+        <TextBlock HorizontalAlignment="Left" Margin="33,326,0,-42" TextWrapping="Wrap" Text="Вложения" VerticalAlignment="Top" Height="16" Width="63"/>
+        <TextBlock HorizontalAlignment="Left" Margin="33,48,0,0" TextWrapping="Wrap" Text="Статус" VerticalAlignment="Top" Height="16" Width="53"/>
+        <ComboBox HorizontalAlignment="Left" Margin="114,48,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="249,51,-37,0" TextWrapping="Wrap" Text="Назначена на:" VerticalAlignment="Top" Height="16" Width="88"/>
+        <ComboBox HorizontalAlignment="Left" Margin="342,48,-264,0" VerticalAlignment="Top" Width="222" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="33,84,0,0" TextWrapping="Wrap" Text="Тип" VerticalAlignment="Top" Height="16" Width="53"/>
+        <ComboBox HorizontalAlignment="Left" Margin="114,78,-1,0" VerticalAlignment="Top" Width="187" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="333,79,-139,0" TextWrapping="Wrap" Text="Времени осталось" VerticalAlignment="Top" Height="16" Width="106"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="444,78,-264,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="409,22,-215,0" TextWrapping="Wrap" Text="% завершения" VerticalAlignment="Top" Height="16" Width="106"/>
+        <local:AttachmentsControl HorizontalAlignment="Left" Height="100" Margin="114,326,0,0" VerticalAlignment="Top" Width="450"/>
+        <ComboBox HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" Width="64"/>
+
+    </Grid>
+</UserControl>
