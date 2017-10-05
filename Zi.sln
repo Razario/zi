@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zi", "Zi\Zi.csproj", "{C7181FD6-5948-4C5E-BDD5-AC0E5FF557FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zi.Server", "Zi.Server\Zi.Server.csproj", "{3BDD1CF1-70C8-4E29-A0AB-F3E5D9520289}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zi.Context", "Zi.Context\Zi.Context.csproj", "{CFD0C858-0A0B-4E2B-B487-B093955D6BD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C7181FD6-5948-4C5E-BDD5-AC0E5FF557FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7181FD6-5948-4C5E-BDD5-AC0E5FF557FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7181FD6-5948-4C5E-BDD5-AC0E5FF557FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BDD1CF1-70C8-4E29-A0AB-F3E5D9520289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BDD1CF1-70C8-4E29-A0AB-F3E5D9520289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BDD1CF1-70C8-4E29-A0AB-F3E5D9520289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BDD1CF1-70C8-4E29-A0AB-F3E5D9520289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD0C858-0A0B-4E2B-B487-B093955D6BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD0C858-0A0B-4E2B-B487-B093955D6BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD0C858-0A0B-4E2B-B487-B093955D6BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD0C858-0A0B-4E2B-B487-B093955D6BD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

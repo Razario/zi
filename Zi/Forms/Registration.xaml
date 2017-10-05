@@ -5,15 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zi.Forms"
         mc:Ignorable="d"
-        Title="Регистрация" Height="300" Width="431">
+        Title="Zi: Регистрация" Height="396.037" Width="431.732" Icon="/Zi;component/Icons/icon.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="21,21,-13.4,0" TextWrapping="Wrap" Text="Для работы в системе необходимо авторизоваться:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="55,56,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="176,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
-        <TextBlock HorizontalAlignment="Left" Margin="55,85,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="176,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
-        <TextBlock HorizontalAlignment="Left" Margin="55,113,0,0" TextWrapping="Wrap" Text="Повторите пароль:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="176,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="21,21,-13.4,0" TextWrapping="Wrap" Text="Для работы в системе необходимо зарегистрироваться:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="59,94,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
+        <TextBlock HorizontalAlignment="Left" Margin="59,123,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
+        <TextBlock HorizontalAlignment="Left" Margin="59,152,0,0" TextWrapping="Wrap" Text="Повторите пароль:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
+        <TextBlock HorizontalAlignment="Left" Margin="59,180,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
+        <TextBlock HorizontalAlignment="Left" Margin="59,67,0,0" TextWrapping="Wrap" Text="ФИО:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197"/>
+        <ComboBox HorizontalAlignment="Left" Margin="180,204,0,0" VerticalAlignment="Top" Width="197" ItemsSource="{Binding ActualRoles}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedRole}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,207,0,0" TextWrapping="Wrap" Text="Основная роль:" VerticalAlignment="Top"/>
+        <Button Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="237,236,0,0" VerticalAlignment="Top" Width="140" Height="25"/>
+        <Line Stroke="LightBlue" StrokeThickness="1" X1="0" Y1="0" X2="345" Y2="0" Margin="0,282,-5.4,0" HorizontalAlignment="Right" Width="402" Height="2" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,292,0,0" TextWrapping="Wrap" Text="Уже есть аккаут?" VerticalAlignment="Top"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="237,313,0,0" VerticalAlignment="Top" Width="140" Height="25" Click="loginBtn_Click"/>
     </Grid>
 </Window>

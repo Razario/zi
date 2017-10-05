@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zi.Entity;
+using Zi.Models;
 
 namespace Zi.Forms
 {
@@ -22,6 +25,15 @@ namespace Zi.Forms
         public Registration()
         {
             InitializeComponent();
+            DataContext = new RegistrationModel();
+            ((RegistrationModel)DataContext).ActualRoles = new ObservableCollection<Role>(Service.GetActualRoles());
+            ((RegistrationModel)DataContext).SelectedRole = ((RegistrationModel)DataContext).ActualRoles.First();
+        }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
         }
     }
 }
