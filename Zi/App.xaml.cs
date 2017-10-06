@@ -23,7 +23,7 @@ namespace Zi
         private Dictionary<string, System.Drawing.Icon> iconSet;
         public App()
         {
-            this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
             var login = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Login", null);
             var password = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Token", null);
             if (login == null) //Пользователь не заходил в систему с этого компьютера
@@ -131,16 +131,40 @@ namespace Zi
             var itm4 = new MenuItem
             {
                 Index = 3,
+                Text = "Сменить пользователя"
+            };
+            itm4.Click += ChangeUser_Click; ;
+
+            var itm5 = new MenuItem
+            {
+                Index = 4,
                 Text = "Выход"
             };
-            itm4.Click += Exit_Click;
+            itm5.Click += Exit_Click;
 
-            menu.MenuItems.AddRange(new[] { itm1, itm2, itm3, new MenuItem { Text = "-" }, itm4 });
+            menu.MenuItems.AddRange(new[] { itm1, itm2, itm3, itm4, new MenuItem { Text = "-" }, itm5 });
 
             notifyIcon.ContextMenu = menu;
 
             window = new MainWindow();
             window.Show();
+        }
+
+        private void ChangeUser_Click(object sender, EventArgs e)
+        {
+            Service.Exit();
+            Service = null;
+            window.Close();
+            notifyIcon.Dispose();
+            var login = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Login", null);
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Zi", true))
+            {
+                if (key != null)
+                    key.DeleteValue("Token");
+            }
+
+            OpenLoginForm(login.ToString());
+
         }
 
         private void Exit_Click(object sender, EventArgs e)

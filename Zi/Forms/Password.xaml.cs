@@ -25,15 +25,20 @@ namespace Zi.Forms
         public Password(string login = null, string password = null)
         {
             InitializeComponent();
-            DataContext = new LoginModel { Login = login, Password = password, RememberMe = (login != null && password != null) };
+            DataContext = new LoginModel { Login = login, RememberMe = (login != null && password != null) };
+            psw.Password = password;
         }
 
+        private void registerBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             var model = (LoginModel)DataContext;
             try
             {
-                var result = ((App)App.Current).Login(model.Login, model.Password);
+                var result = ((App)App.Current).Login(model.Login, psw.Password);
                 if (result)
                 {
                     saveToRegestry();
@@ -53,7 +58,7 @@ namespace Zi.Forms
             var model = (LoginModel)DataContext;
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Login", model.Login);
             if (model.RememberMe)
-                Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Token", Verify.Encrypt(model.Password, model.Login));
+                Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zi", "Token", Verify.Encrypt(psw.Password, model.Login));
         }
     }
 }

@@ -9,7 +9,6 @@ using System.Net;
 
 namespace Zi.Server.Controllers
 {
-    //[Produces("application/json")]
     [Route("api/[controller]")]
     public class AuthController : BaseController
     {
@@ -19,18 +18,27 @@ namespace Zi.Server.Controllers
             var psw = Verify.Decrypt(password, login);
             if (Verify.Hash(psw + login) != hash)
                 return StatusCode((int)HttpStatusCode.BadRequest);
-            var guid = Guid.NewGuid().ToString().Replace("-", "");
+            //провека логина и пароля
 
+            var guid = Guid.NewGuid().ToString().Replace("-", "");
+            HttpContext.Session.SetString(guid, login);
+            
             return Ok(guid);
         }
 
         [HttpPost]
         [TokenRequired]
-        public bool EndOfWork([FromBody] string token)
+        public bool EndOfWork()
         {
-            var xx = Request.Headers;
-            var xxf = Request.Headers["Token"];
-            return false;
+            try
+            {
+                HttpContext.Session.Remove(Token);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

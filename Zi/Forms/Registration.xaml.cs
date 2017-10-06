@@ -35,5 +35,10 @@ namespace Zi.Forms
             DialogResult = true;
             Close();
         }
+
+        private void registrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

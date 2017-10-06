@@ -6,32 +6,37 @@ using System.Threading.Tasks;
 using Zi.Entity;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace Zi.Server
 {
     public class BaseController : Controller
     {
-        protected User User { get; set; }
+        protected new User User { get; set; }
+        protected string Token { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var token = Request.Headers["Token"];
 
-            //var filters = new List<FilterAttribute>();
-            //filters.AddRange(filterContext.ActionDescriptor.GetFilterAttributes(false));
-            //filters.AddRange(filterContext.ActionDescriptor.ControllerDescriptor.GetFilterAttributes(false));
-            //var roles = filters.OfType<AuthorizeAttribute>().Select(f => f.Roles);
-
-           var ttt = (Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)context.ActionDescriptor;
-            var ee = ttt.MethodInfo.CustomAttributes;
-            var yyy = ee.ToArray()[0].AttributeType.FullName;
-            var yyy2 = ee.ToArray()[1].AttributeType.FullName;
-
-
-            if (string.IsNullOrEmpty(token))
-                context.Result = StatusCode((int)HttpStatusCode.Unauthorized);
-
-            base.OnActionExecuting(context);
+            var descriptor = (Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)context.ActionDescriptor;
+            var tokenAttr = descriptor.MethodInfo.CustomAttributes.FirstOrDefault(f => f.AttributeType.FullName == "Zi.Server.TokenRequired");
+            if (tokenAttr != null)
+            {
+                if (token.Count == 0)
+                    context.Result = StatusCode((int)HttpStatusCode.Unauthorized);
+                var login = HttpContext.Session.GetString(token);
+                if (login != null)
+                {
+                    Token = token;
+                    User = new User { Login = login };
+                    base.OnActionExecuting(context);
+                }
+                else
+                    context.Result = StatusCode((int)HttpStatusCode.Forbidden);
+            }
+            else
+                base.OnActionExecuting(context);
         }
     }
 }
